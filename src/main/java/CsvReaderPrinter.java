@@ -36,7 +36,7 @@ public class CsvReaderPrinter {
             }
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
-                Human person = new Human(Integer.valueOf(nextLine[0]), nextLine[1], nextLine[2], new Department(nextLine[4]), Integer.valueOf(nextLine[5]), nextLine[4]);
+                Human person = new Human(Integer.valueOf(nextLine[0]), nextLine[1], nextLine[2], new Department(nextLine[4]), Integer.valueOf(nextLine[5]), nextLine[3]);
                 persons.add(person);
             }
         } catch (IOException | CsvValidationException e) {
