@@ -1,3 +1,5 @@
+package сsvReaderPrinter;
+
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -6,7 +8,6 @@ import com.opencsv.exceptions.CsvValidationException;
 import entities.Department;
 import entities.Human;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,9 +18,16 @@ import java.util.List;
  */
 public class CsvReaderPrinter {
 
-    private static String csvFilePath = "C://Users/User/IdeaProjects/lab4/src/main/resources/foreign_names.csv";
-    private static char separator = ';';
-    private static List<Human> persons = new ArrayList<>();
+    private String csvFilePath;
+    private char separator;
+    private List<Human> persons;
+
+    /** Constructor with parameters for an object of the сsvReaderPrinter.CsvReaderPrinter class */
+    public CsvReaderPrinter(String csvFilePath, char separator, List<Human> persons) {
+        this.csvFilePath = csvFilePath;
+        this.separator = separator;
+        this.persons = persons;
+    }
 
     /**
      * Method for reading data from CSV-file
@@ -60,9 +68,27 @@ public class CsvReaderPrinter {
         }
     }
 
-    public static void main(String[] args) {
-        CsvReaderPrinter reader = new CsvReaderPrinter();
-        reader.readFromCSV();
-        reader.printCSVData();
+    public String getCsvFilePath() {
+        return csvFilePath;
+    }
+
+    public void setCsvFilePath(String csvFilePath) {
+        this.csvFilePath = csvFilePath;
+    }
+
+    public char getSeparator() {
+        return separator;
+    }
+
+    public void setSeparator(char separator) {
+        this.separator = separator;
+    }
+
+    public List<Human> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Human> persons) {
+        this.persons = persons;
     }
 }
